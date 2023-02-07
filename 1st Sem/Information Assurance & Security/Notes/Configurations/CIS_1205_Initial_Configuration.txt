@@ -1,0 +1,41 @@
+en
+conf t
+
+hostname R1
+
+banner motd $Unauthorized access to this device is strictly prohibited and is punishable to the full extent of the Law!!$
+
+service password-encryption
+enable secret cisco
+
+line con 0
+password cisco
+
+ip domain name com
+crypto key generate rsa
+1024
+ip ssh version 2
+username admin password cisco
+line vty 0 4
+transport input ssh
+login local
+exit
+do wr
+
+int vlan 1
+ip add 192.168.10.1 255.255.255.0
+no shut
+
+exit
+exit
+
+copy run start
+
+exit
+exit
+
+line vty 0 4
+password cisco
+login
+transport input telnet
+exit

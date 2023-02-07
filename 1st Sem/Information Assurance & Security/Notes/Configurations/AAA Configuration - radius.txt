@@ -1,0 +1,30 @@
+en
+conf t
+
+int g0/0
+ip add 192.168.3.1 255.255.255.0
+no shut
+exit 
+
+hostname R3
+enable secret cisco
+username admin3 secret admin3pa55
+
+radius-server host 192.168.3.5
+radius-server key radiuspa55
+aaa new-model
+aaa authentication login default group radius local
+
+line con 0
+login authentication default
+exit
+
+ip domain-name ccnasecurity.com
+crypto key generate rsa
+1024
+aaa authentication login SSH-LOGIN group radius local
+line vty 0 4
+login authentication SSH-LOGIN
+transport input ssh
+
+end

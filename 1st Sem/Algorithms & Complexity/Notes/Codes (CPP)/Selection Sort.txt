@@ -1,0 +1,19 @@
+#include "Selection.h"     // Typedefs ItemType.
+
+inline void swap(ItemType a[], int i, int j) {
+    ItemType t = a[i];
+    a[i] = a[j];
+    a[j] = t;
+}
+
+void selection(ItemType a[], int N) {
+    int i, j, min;
+
+    for (i = 1; i < N; i++) {
+        min = i;
+        for (j = i+1; j <= N; j++)
+            if (a[j] < a[min])
+                min = j;
+        swap(a,min,i);
+    }
+}

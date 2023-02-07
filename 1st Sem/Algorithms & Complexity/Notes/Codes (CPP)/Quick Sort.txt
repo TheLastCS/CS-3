@@ -1,0 +1,21 @@
+// inline void swap() is the same as for selection sort.
+
+void quicksort(ItemType a[], int left, int right) {
+    int i, j;
+    ItemType v;
+
+    if (right > left) {
+        v = a[right];
+        i = left - 1;
+        j = right;
+        for (;;) {
+            while (a[++i] < v);
+            while (a[--j] > v);
+            if (i >= j) break;
+            swap(a,i,j);
+        }
+        swap(a,i,right);
+        quicksort(a,left,i-1);
+        quicksort(a,i+1,right);
+    }
+}

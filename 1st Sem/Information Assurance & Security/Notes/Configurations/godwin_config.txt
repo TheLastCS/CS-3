@@ -1,0 +1,152 @@
+!Configuring Telnet using Manangement VLAN - VLAN99
+vlan 99 - create vlan
+name mgtVLAN - command to name the vlan
+
+to transfer the port from vlan 1 to vlan 99
+int g0/1 - specific port to transfer
+switchport mode access - converting dynamic port to static port
+switchport access vlan 99 - command to transfer the port
+
+vlan 99 
+name mgtVLAN
+int g0/1
+switchport mode access
+switchport access vlan 99
+
+
+
+!Initial Configuration/Basic Switch and Router Config
+
+hostname
+banner motd
+line console 0
+line vty 0 4 - first configuration for TELNET or SSH
+enable secret
+service password-enryption
+
+
+ena
+config t
+hostname Company_Switch
+banner motd $WARNING! Unauthorized access to this device is prohibited and is punishable to the full extent of the Law!$
+service password-encryption
+
+line con 0
+password cisco
+login
+exit
+
+ip domain name com
+crypto key generate rsa
+1024
+ip ssh version 2
+username admin password cisco
+line vty 0 4 
+transport input ssh
+login local
+exit
+
+int vlan 1
+ip add 192.168.10.2 255.255.255.0
+no shut
+enable secret cisco
+
+
+Port Security Commands
+Identify the port
+make the port static
+give port security command
+identify # of computers to access the port
+look for the mac address of the PC and bind it to the selected port
+select violation if ever the conditions are not met
+*protect
+*restrict
+*shutdown
+
+int fa0/1
+switchport mode access
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address 000D.BD9B.C08D
+switchport port-security violation shut
+
+int range fa0/2-4
+switchport mode access
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shut
+
+
+Creating VLAN
+1.  Plan out your design
+VLAN virtual LAN
+2.  Identify the ports to where you setup your VLAN
+individual port
+group ports
+3.  Plan your VLAN ID
+VLAN 10
+4.  Plan your vLAN name
+Name LB470, or name DCIS-Office
+5.  Transfer each port to the created VLAN
+
+
+connect same devices - cross over
+different - straight thru
+
+Remote Access Procedure
+
+putting IP Add to an interface
+int target interface
+int vlan 1
+ip address 192.168.10.2 255.255.255.0
+no shutdown
+
+192.168.10.1-9 <- reserve, router, switch, server, printer administrative
+computer 
+192.168.10.10
+
+
+Tenetting
+1. telnet should be activated in the initial configuration
+    via line vty 0 4
+2. assign an IP Address to a switch via SVI
+    interface vlan 1
+3. ping the IP Address first
+4. telnet then the target ip address
+    telnet 192.168.10.2
+
+
+
+Structured Cabling
+
+from PC -> wall mount Jack (rj 45-bracket)
+           front -rj 45 connected to PC
+           back - bracket connected to back of the patch panel
+patch panel -> front - rj45 connected to switch
+               back - bracket connected to RJ 45 jack
+
+
+
+
+!This area is not discussed yet
+
+
+permission to laptop
+deny all
+
+Standard - closer to the destination
+Extended - closer to the source
+
+
+
+access-list 101 deny tcp 200.15.190.0 0.0.0.31 host 192.168.20.2 eq www
+access-list 101 permit ip any any
+int g0/0.40
+ip access-group 101 in
+
+
+
+
+
+

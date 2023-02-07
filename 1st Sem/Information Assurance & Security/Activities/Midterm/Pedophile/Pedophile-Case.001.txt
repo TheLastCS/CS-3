@@ -1,0 +1,45 @@
+﻿Created By AccessData® FTK® Imager 3.1.5.0 
+
+Case Information: 
+Acquired using: ADI3.1.5.0
+Case Number: 101024-10
+Evidence Number: 101024
+Unique description: Pedophile Case
+Examiner: Godwin S. Monserate
+Notes:  
+
+--------------------------------------------------------------
+
+Information for C:\Users\Godwin Monserate\Desktop\2ND Sem 2020-2021\Information Assurance and Security\Digital Forensics\Photo Crime\Pedophile\Pedophile-Case:
+
+Physical Evidentiary Item (Source) Information:
+[Device Info]
+ Source Type: Physical
+[Drive Geometry]
+ Cylinders: 31
+ Tracks per Cylinder: 255
+ Sectors per Track: 63
+ Bytes per Sector: 512
+ Sector Count: 504,320
+[Physical Drive Information]
+ Drive Model: Generic Flash Disk USB Device
+ Drive Serial Number: CB6BD699
+ Drive Interface Type: USB
+ Removable drive: True
+ Source data size: 246 MB
+ Sector count:    504320
+[Computed Hashes]
+ MD5 checksum:    514cad8d821a1404ece56c78ebc62b9d
+ SHA1 checksum:   a8f7f7387396ef06a9eb0c73ee5b3ac96067cebb
+
+Image Information:
+ Acquisition started:   Sun Mar 21 18:44:08 2021
+ Acquisition finished:  Sun Mar 21 18:48:06 2021
+ Segment list:
+  C:\Users\Godwin Monserate\Desktop\2ND Sem 2020-2021\Information Assurance and Security\Digital Forensics\Photo Crime\Pedophile\Pedophile-Case.001
+
+Image Verification Results:
+ Verification started:  Sun Mar 21 18:48:06 2021
+ Verification finished: Sun Mar 21 18:48:07 2021
+ MD5 checksum:    514cad8d821a1404ece56c78ebc62b9d : verified
+ SHA1 checksum:   a8f7f7387396ef06a9eb0c73ee5b3ac96067cebb : verified

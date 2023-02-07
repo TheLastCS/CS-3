@@ -1,0 +1,59 @@
+STATELESS
+
+ipv6 dhcp pool R1-STATELESS
+dns-server 2001:db8:acad::254
+domain-name STATELESS.com
+interface g0/0/0
+ipv6 nd other-config-flag
+ipv6 dhcp server R1-STATELESS
+
+STATEFUL
+
+ipv6 dhcp pool R2-STATEFUL
+address prefix 2001:db8:acad:3:aaa::/80
+dns-server 2001:db8:acad::254
+domain-name STATEFUL.com
+interface g0/0/0
+ipv6 dhcp server R2-STATEFUL
+
+
+
+
+
+vlan 10
+200.15.240.62
+
+vlan 20
+200.15.240.126
+
+vlan 30
+200.15.240.190
+
+
+
+
+name Acctg
+int ra f0/1-5
+sw mo acc
+sw acc vlan 10
+
+
+vlan 20
+name Finance
+int ra f0/6-10
+sw mo acc
+sw acc vlan 20
+
+
+vlan 30
+name IT
+int ra f0/11-15
+sw mo acc
+sw acc vlan 30
+
+
+
+standby 1 name HSRP_1
+
+
+

@@ -1,0 +1,45 @@
+﻿Created By AccessData® FTK® Imager 3.1.5.0 
+
+Case Information: 
+Acquired using: ADI3.1.5.0
+Case Number: 001-MurderCase
+Evidence Number: 1011
+Unique description: Murder Case of Robert John Rhodest
+Examiner: Godwin S. Monserate
+Notes:  
+
+--------------------------------------------------------------
+
+Information for C:\Users\Godwin Monserate\Desktop\2ND Sem 2020-2021\Information Assurance and Security\Digital Forensics\Photo Crime\Murder\murdercase:
+
+Physical Evidentiary Item (Source) Information:
+[Device Info]
+ Source Type: Physical
+[Drive Geometry]
+ Cylinders: 31
+ Tracks per Cylinder: 255
+ Sectors per Track: 63
+ Bytes per Sector: 512
+ Sector Count: 504,320
+[Physical Drive Information]
+ Drive Model: Generic Flash Disk USB Device
+ Drive Serial Number: CB6BD699
+ Drive Interface Type: USB
+ Removable drive: True
+ Source data size: 246 MB
+ Sector count:    504320
+[Computed Hashes]
+ MD5 checksum:    10e2b252e1e947c7aedc3c79eedd7073
+ SHA1 checksum:   fd2b4a5991658e60524647537a9cc39ae22ee929
+
+Image Information:
+ Acquisition started:   Sun Mar 21 00:47:19 2021
+ Acquisition finished:  Sun Mar 21 00:51:44 2021
+ Segment list:
+  C:\Users\Godwin Monserate\Desktop\2ND Sem 2020-2021\Information Assurance and Security\Digital Forensics\Photo Crime\Murder\murdercase.001
+
+Image Verification Results:
+ Verification started:  Sun Mar 21 00:51:45 2021
+ Verification finished: Sun Mar 21 00:51:45 2021
+ MD5 checksum:    10e2b252e1e947c7aedc3c79eedd7073 : verified
+ SHA1 checksum:   fd2b4a5991658e60524647537a9cc39ae22ee929 : verified

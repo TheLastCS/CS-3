@@ -1,0 +1,22 @@
+en
+conf t
+hostname R1
+enable secret cisco
+
+username admin1 secret admin1pa55
+aaa new-model
+aaa authentication login default local
+line con 0
+login authentication default
+
+exit
+
+ip domain-name ccnasecurity.com
+crypto key generate rsa
+1024
+aaa authentication login SSH-LOGIN local
+line vty 0 4
+login authentication SSH-LOGIN
+transport input ssh
+
+end

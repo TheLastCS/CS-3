@@ -1,0 +1,85 @@
+ISP information:
+public: 10.1.1.0 /30
+GW: 8.8.8.1
+DNS: 8.8.8.8
+website: www.google.com
+
+1. Assign IP and Gateway for the ISP and Server
+2. Verify
+
+
+ISP ROUTER
+----------
+int g0/1
+ip add 8.8.8.1 255.255.255.0
+no shut
+int g0/0
+ip add 10.1.1.1 255.255.255.252
+no shut
+
+do wr
+
+
+FIREWALL
+---------
+en
+conf t
+hostname ASAFirewall
+enable password cisco
+
+no class-map inspection_default
+no policy-map global_policy
+no match default-inspection-traffic
+
+GATEWAY OF ASA (pointing to ISP)
+--------------
+int g1/1
+ip add 10.1.1.2 255.255.255.252
+no shut
+nameif OUTSIDE-NETWORK
+security level 0
+no shut
+
+GATEWAY OF ASA (pointing to LAN)
+--------------
+int g1/2
+ip add 10.1.1.2 255.255.255.252
+no shut
+nameif INSIDE-NETWORK
+security level 100
+no shut
+
+show int ip brief
+show run
+
+DHCP SERVER FOR LAN
+-------------------
+dhcp address 192.168.1.10-192.168.10.20 INSIDE-NETWORK
+dhcp dns 8.8.8.8
+dhcp option 3 ip 192.168.1.1
+dhcp enable inside
+
+CONFIGURE DEFAULT ROUTE
+-----------------------
+route outside 0.0.0.0 0.0.0.0 10.1.1.1
+
+CONFIGURE NAT
+-------------
+object network INSIDE-NETWORK
+subnet 192.168.1.0 255.255.255.0
+nat (inside,outside) dynamic interface
+
+FIREWALL PERMISSION
+-------------------
+class-map inspection_default
+match default-inspection-traffic
+policy-map global_policy
+class inspection_default
+inspect icmp
+service-policy global_policy global
+
+ADDING PERMISSION TO ASA
+------------------------
+policy-map global_policy
+class inspection_default
+inspect DNS

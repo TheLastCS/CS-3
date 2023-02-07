@@ -1,0 +1,188 @@
+
+
+DHCPV6 Initial Config
+
+!Switches
+
+en
+conf t
+hostname S1
+no ip domain-lookup
+enable secret class
+line con 0
+password cisco
+login
+line vty 0 4
+password cisco
+login
+service password-encryption
+banner motd $ Authorized Users Only! $
+
+int ra f0/1-2,f0/7-24,G0/1-2
+shutdown
+
+do copy run start
+
+
+
+
+
+
+en
+conf t
+hostname S2
+no ip domain-lookup
+enable secret class
+line con 0
+password cisco
+login
+line vty 0 4
+password cisco
+login
+service password-encryption
+banner motd $ Authorized Users Only! $
+
+int ra f0/1-4,f0/7-17,f0/19-24,G0/1-2
+shutdown
+
+do copy run start
+
+
+!Routers 
+
+============================ SLAAC =============================
+
+en
+conf t
+hostname R1
+no ip domain-lookup
+enable secret class
+line con 0
+password cisco
+login
+line vty 0 4
+password cisco
+login
+service password-encryption
+banner motd $ Authorized Users Only! $
+
+ipv6 unicast-routing
+
+
+int g0/0/1
+ipv6 add fe80::1 link-local
+ipv6 address 2001:db8:acad:1::1/64
+no shut
+
+
+int g0/0/0
+ipv6 address fe80::1 link-local
+ipv6 address 2001:db8:acad:2::1/64
+no shutdown
+
+ipv6 route ::/0 2001:db8:acad:2::2
+
+do copy run start
+
+
+
+
+
+
+en
+conf t
+hostname R2
+no ip domain-lookup
+enable secret class
+line con 0
+password cisco
+login
+line vty 0 4
+password cisco
+login
+service password-encryption
+banner motd $ Authorized Users Only! $
+ipv6 unicast-routing
+do copy run start
+
+
+int g0/0/1
+ipv6 address fe80::1 link-local
+ipv6 address 2001:db8:acad:3::1/64
+no shutdown
+
+interface g0/0/0
+ipv6 address fe80::2 link-local
+ipv6 address 2001:db8:acad:2::2/64
+no shutdown
+
+ipv6 route ::/0 2001:db8:acad:2::1
+
+do copy run start
+
+
+
+
+
+ping 2001:db8:acad:1::1
+
+
+
+
+============================ STATLESS DHCPv6=============================
+
+
+ipv6 dhcp pool R1-STATELESS
+dns-server 2001:db8:acad::254
+domain-name STATLESS.com
+
+int g0/0/1
+ipv6 nd other-config-flag
+ipv6 dhcp server R1-STATELESS
+do copy run start
+
+
+
+============================ STATEFULL DHCPv6=============================
+
+
+
+
+ipv6 dhcp pool R2-STATEFUL
+address prefix 2001:db8:acad:3:aaa::/80
+dns-server 2001:db8:acad::254
+domain-name STATEFUL.com
+
+int g0/0/0
+ipv6 dhcp server R2-STATEFUL
+
+
+
+
+!Router 2
+
+int g0/0/1
+ipv6 nd managed-config-flag
+ipv6 dhcp relay destination 2001:db8:acad:2::1
+do copy run start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

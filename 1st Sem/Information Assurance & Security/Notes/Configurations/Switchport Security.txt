@@ -1,0 +1,30 @@
+int fa0/1
+switchport mode access
+switchport port-security
+switchport port-security max 1
+switchport port-security mac-address 0030.F244.A873
+switchport port-security violation shutdown
+
+int fa0/2
+switchport mode access
+switchport port-security
+switchport port-security max 1
+switchport port-security mac-address 0000.0CC0.91DD
+switchport port-security violation shutdown
+
+int fa0/3
+switchport mode access
+switchport port-security
+switchport port-security max 1
+switchport port-security mac-address 0003.E424.3B7D
+switchport port-security violation shutdown
+exit
+
+int range fa0/4-24, gi0/2
+shutdown
+do wr
+
+show mac-address-table
+show port-security int fa0/1
+show port-security int fa0/2
+show port-security int fa0/3

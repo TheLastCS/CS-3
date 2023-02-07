@@ -1,0 +1,77 @@
+#include <stdio.h>  
+
+#include <stdlib.h>
+
+#include <conio.h>
+
+void counting_sort(int Array[], int k, int n)  
+
+{  
+
+    int i, j;  
+
+    int Array1[10], Array2[100];  
+
+    for (i = 0; i <= k; i++)  
+
+        Array2[i] = 0;  
+
+    for (j = 1; j <= n; j++)  
+
+        Array2[Array[j]] = Array2[Array[j]] + 1;  
+
+    for (i = 1; i <= k; i++)  
+
+        Array2[i] = Array2[i] + Array2[i-1];  
+
+    for (j = n; j >= 1; j--)  
+
+    {  
+
+        Array1[Array2[Array[j]]] = Array[j];  
+
+        Array2[Array[j]] = Array2[Array[j]] - 1;  
+
+    }  
+
+    printf("Sorted array is : ");  
+
+    for (i = 1; i <= n; i++)  
+
+        printf("%d ", Array1[i]);  
+
+}  
+
+int main()  
+
+{  
+
+    int n, k = 0, Array[15], i;  
+
+    printf("Enter the number of elements : ");  
+
+    scanf("%d", &n);  
+
+    printf("\nEnter the elements which are going to be sorted :\n");  
+
+    for (i = 1; i <= n; i++)  
+
+    {  
+
+        scanf("%d", &Array[i]);  
+
+        if (Array[i] > k) {  
+
+            k = Array[i];  
+
+        }  
+
+    }  
+
+    counting_sort(Array, k, n);  
+
+    printf("\n");  
+
+    return 0;  
+
+}  

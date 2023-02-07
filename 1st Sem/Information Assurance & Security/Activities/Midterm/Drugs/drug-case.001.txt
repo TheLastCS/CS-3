@@ -1,0 +1,45 @@
+﻿Created By AccessData® FTK® Imager 3.1.5.0 
+
+Case Information: 
+Acquired using: ADI3.1.5.0
+Case Number: 101042-05
+Evidence Number: 101042-05
+Unique description: Drug Case - Kushiro Yamamoto Drug Cartel
+Examiner: Godwin S. Monserate
+Notes:  
+
+--------------------------------------------------------------
+
+Information for C:\Users\Godwin Monserate\Desktop\2ND Sem 2020-2021\Information Assurance and Security\Digital Forensics\Photo Crime\Drugs\drug-case:
+
+Physical Evidentiary Item (Source) Information:
+[Device Info]
+ Source Type: Physical
+[Drive Geometry]
+ Cylinders: 31
+ Tracks per Cylinder: 255
+ Sectors per Track: 63
+ Bytes per Sector: 512
+ Sector Count: 504,320
+[Physical Drive Information]
+ Drive Model: Generic Flash Disk USB Device
+ Drive Serial Number: CB6BD699
+ Drive Interface Type: USB
+ Removable drive: True
+ Source data size: 246 MB
+ Sector count:    504320
+[Computed Hashes]
+ MD5 checksum:    56516c8503b3280098983d683d04846b
+ SHA1 checksum:   ebe9c92bd64600e807ab454e5b05dba9092c9d59
+
+Image Information:
+ Acquisition started:   Sun Mar 21 18:19:47 2021
+ Acquisition finished:  Sun Mar 21 18:23:45 2021
+ Segment list:
+  C:\Users\Godwin Monserate\Desktop\2ND Sem 2020-2021\Information Assurance and Security\Digital Forensics\Photo Crime\Drugs\drug-case.001
+
+Image Verification Results:
+ Verification started:  Sun Mar 21 18:23:45 2021
+ Verification finished: Sun Mar 21 18:23:46 2021
+ MD5 checksum:    56516c8503b3280098983d683d04846b : verified
+ SHA1 checksum:   ebe9c92bd64600e807ab454e5b05dba9092c9d59 : verified

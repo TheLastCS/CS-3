@@ -1,0 +1,30 @@
+en
+conf t
+
+int g0/0
+ip add 192.168.2.1 255.255.255.0
+no shut
+exit 
+
+hostname R2
+enable secret cisco
+username admin2 secret admin2pa55
+
+tacacs-server host 192.168.2.5
+tacacs-server key tacacspa55
+aaa new-model
+aaa authentication login default group tacacs+ local
+
+line con 0
+login authentication default
+exit
+
+ip domain-name ccnasecurity.com
+crypto key generate rsa
+1024
+aaa authentication login SSH-LOGIN group tacacs+ local
+line vty 0 4
+login authentication SSH-LOGIN
+transport input ssh
+
+end
