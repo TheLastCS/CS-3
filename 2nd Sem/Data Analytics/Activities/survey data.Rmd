@@ -1,0 +1,39 @@
+---
+title: "Survey Stats"
+output: pdf_document
+date: '2023-03-02'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Frequency and Descriptives
+
+```{r , echo=FALSE}
+# read data from path
+library(readr)
+library(knitr)
+library(magrittr)
+library(formattable)
+surveydata <- readxl::read_xlsx("D:/School Work/CS 3/2nd Sem/Data Analytics/Activities/smokingsurvey-1.xlsx")
+
+# view data
+# obtain summary statistics for each variable
+summary(surveydata)
+
+# obtain frequency of each variable
+kable(age <- table(surveydata$`Age:`), caption = "Age Frequency")
+kable(sex <- table(surveydata$`Sex:`), caption = "Gender Frequency")
+kable(weight <- table(surveydata$`Weight: (kgs)`), caption = "Weight Frequency")
+kable(height <- table(surveydata$`Height: (m)`), caption = "Height Frequency")
+kable(ncigar <- table(surveydata$`ncigar`), caption = "Ncigar Frequency")
+kable(nysmoke <- table(surveydata$`nysmoke`), caption = "Nysmoke Frequency")
+kable(age_smoke <- table(surveydata$`age smoke`), caption = "Smoking Age Frequency")
+
+# summary of all tables
+kable(list(age, sex, weight, height, ncigar, nysmoke, age_smoke), caption = "Frequency and Descriptives Summary")
+
+#colnames(final_list) <- c("Age","Frequency","Gender","Frequency","Weight","Frequency","Height","Frequency","Ncigar","Frequency","Nysmoke","Frequency","Smoking Age","Frequency")
+```
