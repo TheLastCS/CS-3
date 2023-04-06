@@ -1,0 +1,2 @@
+Multimodal EmotionLines Dataset - https://affective-meld.github.io/
+CARER: Contextualized Affect Representations for Emotion Recognition - https://www.icloud.com/iclouddrive/084E9TMZ_lykn3QhU-kIX1DDQ#merged_training
