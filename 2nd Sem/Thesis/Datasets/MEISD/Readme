@@ -1,0 +1,19 @@
+The MEISD dataset contains textual, audio and visul information of the utterances in a dialogue.
+
+The MEISD_text.csv file contains the textual utterances.
+This file also comprises of the Series, season and episode numbers of the different TV series of the utterance.
+The dialog ids and utterances ids are also provided.
+The annotations of the sentiment, emotions and the corresponding intensity is also given for every utterance in the MEISD_text.csv file.
+
+The audio features are given in the AUDIO FEATURES folder.
+Similarly, the video features are given in the VIDEO FEATURES folder.
+
+
+PLEASE cite our work, in case you intent to use the dataset for your work.
+@inproceedings{firdaus2020meisd,
+  title={MEISD: A Multimodal Multi-Label Emotion, Intensity and Sentiment Dialogue Dataset for Emotion Recognition and Sentiment Analysis in Conversations},
+  author={Firdaus, Mauajama and Chauhan, Hardik and Ekbal, Asif and Bhattacharyya, Pushpak},
+  booktitle={Proceedings of the 28th International Conference on Computational Linguistics},
+  pages={4441--4453},
+  year={2020}
+}
